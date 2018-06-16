@@ -6,7 +6,7 @@
 
 [![made with &hearts in Python](https://img.shields.io/badge/made%20with%20%E2%9D%A4%20in-Python-red.svg)](http://shields.io/#your-badge)
 
-Subtitles Translator is capable of translating around 95 languages. The Translator depends on the Google Cloud Platform.
+Subtitles Translator is capable of translating around 100 languages. The Translator can be used either with a python library "googletrans" for free or the Google Cloud Platform for a minimal cost.
 
 ### List of contents
 
@@ -24,6 +24,9 @@ Make sure that subtitles.py file is in the same directory as of the file you wan
   For example, if you want to translate to French and German, then use "fr de" as your input.
 * If you want to make translations for all languages, use "all" keyword.
 * Suggestion: Make a seperate folder for doing this.
+* If you are using the free version, use "pip install googletrans" to add the library to your machine.
+* If you are using the Cloud Platform, you need to set the path in your machine to the JSON file. You can get more information
+  at https://cloud.google.com/translate/docs/reference/libraries.
 
 ### Contributing
 
@@ -35,9 +38,7 @@ Any contributions or suggestions will be highly appreciated. :blush:
 
 [(Back to top)](#list-of-contents)
 
-1. Who can use this?
-* Anyone.
-2. Where can we use this?
+1. Where can we use this?
 * To create subtitles for youtube videos or for movies. This consists of many possibilities but is limited to videos.
 2. Do Google Cloud Platform offer free services?
 * No. The services charge a minimal cost. 
