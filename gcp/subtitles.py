@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+### The comments with 3 # represents the code for Google Cloud Translate API. 
+### Currently this code is using the library provided by "googletrans". 
 import io
 import os
-from google.cloud import translate
+from googletrans import Translator
+###from google.cloud import translate
 
 inputs = input("Enter languages!" + "\n")
 s = inputs.split(" ")
@@ -19,20 +22,24 @@ if inputs == "all":
 		 'te','th','tr','uk','ur','uz','vi','cy','xh','yi',
 		 'yo','zu', 'en']
 
+translator = Translator(service_urls=['translate.google.com'])
+
 def translate_text(text, target):
 	"""Translates text into the target language.
 
 	Target must be an ISO 639-1 language code.
 	See https://g.co/cloud/translate/v2/translate-reference#supported_languages
 	"""
-	translate_client = translate.Client()
+	###translate_client = translate.Client()
 
 	# Text can also be a sequence of strings, in which case this method
 	# will return a sequence of results for each text.
-	result = translate_client.translate(text, target_language=target)
+	###result = translate_client.translate(text, target_language=target)
 
-	return result['translatedText']
+	###return result['translatedText']
 
+	result = translator.translate(text, target)
+	return result.text
 
 for lang in s:
 	with io.open(filename + "_" + lang + ".srt",'wb') as hi:
