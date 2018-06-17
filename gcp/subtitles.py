@@ -5,22 +5,32 @@ import io
 import os
 from googletrans import Translator
 ###from google.cloud import translate
+import argparse
 
-inputs = input("Enter languages!" + "\n")
-s = inputs.split(" ")
-filename = input("Enter filename without extension!" + "\n")
-if inputs == "all":
-	s = ['af','sq','am','ar','hy','az','eu','bn','bs',
-		 'bg','ca','ceb','zh-CN','zh-TW','co','hr','cs',
-		 'da','nl','eo','et','fi','fr','fy','gl','ka','de',
-		 'el','gu','ht','ha','haw','iw','hi','hmn','hu',
-		 'is','ig','id','ga','it','ja','jw','kn','kk','km',
-		 'ko','ku','lo','lv','lt','lb','mk','mg','ms','ml',
-		 'mt','mi','mr','mn','ne','no','ny','ps','fa','pl',
-		 'pt','pa','ro','ru','sm','gd','sr','st','sn','sd',
-		 'si','sk','sl','so','es','sw','sv','tl','tg','ta',
-		 'te','th','tr','uk','ur','uz','vi','cy','xh','yi',
-		 'yo','zu', 'en']
+parser = argparse.ArgumentParser()
+parser.add_argument("--filename", help="filename without extension")
+parser.add_argument("--languages", help="language of subtitle, comma-separated(don't use spaces)")
+args = parser.parse_args()
+
+if args.languages and args.filename:
+	s = args.languages.split(",")
+	filename = args.filename
+else:
+	inputs = input("Enter languages!" + "\n")
+	s = inputs.split(" ")
+	filename = input("Enter filename without extension!" + "\n")
+	if inputs == "all":
+		s = ['af','sq','am','ar','hy','az','eu','bn','bs',
+			'bg','ca','ceb','zh-CN','zh-TW','co','hr','cs',
+			'da','nl','eo','et','fi','fr','fy','gl','ka','de',
+			'el','gu','ht','ha','haw','iw','hi','hmn','hu',
+			'is','ig','id','ga','it','ja','jw','kn','kk','km',
+			'ko','ku','lo','lv','lt','lb','mk','mg','ms','ml',
+			'mt','mi','mr','mn','ne','no','ny','ps','fa','pl',
+			'pt','pa','ro','ru','sm','gd','sr','st','sn','sd',
+			'si','sk','sl','so','es','sw','sv','tl','tg','ta',
+			'te','th','tr','uk','ur','uz','vi','cy','xh','yi',
+			'yo','zu', 'en']
 
 translator = Translator(service_urls=['translate.google.com'])
 
